@@ -1,0 +1,32 @@
+﻿<Window x:Class="Four25ShowClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Four25ShowClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="800" SizeToContent="Height">
+    <Grid>
+        <StackPanel Background="Azure">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <ComboBox x:Name="howToSignIn" SelectedIndex="0" SelectionChanged="UseWam_Changed" VerticalAlignment="Center">
+                    <ComboBoxItem>Use account used to signed-in in Windows (WAM)</ComboBoxItem>
+                    <ComboBoxItem>Use one of the Accounts known by Windows (WAM)</ComboBoxItem>
+                    <ComboBoxItem>Use any account (Azure AD)</ComboBoxItem>
+                </ComboBox>
+                <Button x:Name="SignInButton" Content="Sign In" HorizontalAlignment="Right" Padding="5" Click="SignInButton_Click" Margin="5" FontFamily="Segoe Ui"/>
+                <Button x:Name="CallApiButton" Content="Call API" HorizontalAlignment="Right" Padding="5" Click="CallApiButton_Click" Margin="5" FontFamily="Segoe Ui" Visibility="Collapsed" />
+                <Button x:Name="IdentityButton" Content="Current Identity" HorizontalAlignment="Right" Padding="5" Click="IdentityButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui" />
+                <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui" />
+            </StackPanel>
+            <Label Content="API Call Results" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+            <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
+            <Label Content="Token Info" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+            <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
+            <Label Grid.Row="5" Content="Id Token" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+            <TextBox Grid.Row="6" x:Name="IdTokenText" TextWrapping="Wrap" Margin="5" FontFamily="Segoe Ui" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+            <Label Grid.Row="7" Content="Access Token" Margin="0,0,0,-5" FontFamily="Segoe Ui" />
+            <TextBox Grid.Row="8" x:Name="AccessTokenText" TextWrapping="Wrap" Margin="5" FontFamily="Segoe Ui" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        </StackPanel>
+    </Grid>
+</Window>
