@@ -1,5 +1,6 @@
 ﻿using System.Configuration;
 using System.Globalization;
+
 using Microsoft.Identity.Client;
 
 namespace Four25ShowClient
@@ -10,7 +11,22 @@ namespace Four25ShowClient
 
         public static PublicClientApplicationBuilder CreateBuilder()
         {
-            return null;
+            var clientId = GetConfigValue(Constants.ClientIdKey);
+            if (string.IsNullOrWhiteSpace(clientId))
+            {
+                return null;
+            }
+
+            var instance = GetConfigValue(Constants.ADInstanceKey);
+            var tenant = GetConfigValue(Constants.TenantKey);
+
+            var authority = string.Format(CultureInfo.InvariantCulture, instance, tenant);
+
+            var builder = PublicClientApplicationBuilder.Create(clientId)
+               .WithAuthority(authority)
+               .WithDefaultRedirectUri();
+
+            return builder;
         }
 
         public static string[] GetAppScopes()

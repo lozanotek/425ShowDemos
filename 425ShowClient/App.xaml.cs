@@ -16,8 +16,8 @@ namespace Four25ShowClient
             var builder = ClientApplication.CreateBuilder();
 
             //Requires redirect URI "ms-appx-web://microsoft.aad.brokerplugin/{client_id}" in app registration
-            //builder.WithExperimentalFeatures();
-            //builder.WithWindowsBroker(true);
+            builder.WithExperimentalFeatures();
+            builder.WithWindowsBroker(true);
 
             if (builder == null)
             {
